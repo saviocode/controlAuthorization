@@ -80,8 +80,7 @@ busca = function () {
             visualizarAutorizacoes(listaDeAutorizacoes);
         },
         error: function (errJson) {
-            resp = ("Erro ao buscar os dados!");
-            exibirMessagem(resp, 2);
+             resp = ("Erro ao buscar os dados!");
         }
     };
     controlecadastro.ajax.post(cfg);
