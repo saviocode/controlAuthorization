@@ -23,7 +23,6 @@ $(document).ready(function () {
             $("#selectAll").prop("checked", false);
         }
     });
-
     busca();
 });
 

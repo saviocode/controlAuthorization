@@ -22,4 +22,3 @@ Frameworks: JSP, HTML, CSS, JavaScript, AJAX.
 - Abra o projeto em sua IDE(como um projeto Maven).
 - Configure as dados de conexão com o banco no arquivo persistence.xml.
 - Execute a aplicação no servidor WildFly.
-
