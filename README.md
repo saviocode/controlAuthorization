@@ -2,18 +2,17 @@
 Este projeto consiste em um sistema de controle de autorizações de procedimentos médicos para um plano de saúde.
 
 # Backend
-Linguagem: Java
-Framework: JPA (Java Persistence API)
-Framework ORM: Hibernate
+Linguagem: Java.
+Frameworks: JPA, Hibernate.
 
 # Banco de Dados
 Banco de Dados: PostgresSql15.
 
 # Servidor de Aplicação
-Framework: JBoss/WildFly.
+Frameworks: JBoss/WildFly.
 
 # Frontend
-Framework: JSP, HTML, CSS, JavaScript, AJAX.
+Frameworks: JSP, HTML, CSS, JavaScript, AJAX.
 
 # Como executar o projeto
 - Certifique-se de ter o JDK (Java Development Kit) instalado em sua máquina.
