@@ -6,7 +6,7 @@ Linguagem: Java.
 Frameworks: JPA, Hibernate.
 
 # Banco de Dados
-Banco de Dados: PostgresSql15.
+Banco de Dados: PostgresSql.
 
 # Servidor de Aplicação
 Frameworks: JBoss/WildFly.
@@ -16,8 +16,8 @@ Frameworks: JSP, HTML, CSS, JavaScript, AJAX.
 
 # Como executar o projeto
 - Certifique-se de ter o JDK (Java Development Kit) instalado em sua máquina.
-- Instale e configure o servidor de aplicação JBoss/WildFly versão 20+.
-- Instale e configure o banco de dados PostgresSql 15.
+- Instale e configure o servidor de aplicação JBoss/WildFly versão 20.0.1.
+- Instale e configure o banco de dados PostgresSql 14.
 - Clone o repositório do projeto para sua máquina local.
 - Abra o projeto em sua IDE(como um projeto Maven).
 - Configure as dados de conexão com o banco no arquivo persistence.xml.

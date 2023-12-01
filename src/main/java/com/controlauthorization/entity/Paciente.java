@@ -13,7 +13,7 @@ public class Paciente extends Persistivel implements Serializable
 	@Column(nullable = false, length = 14)
 	private String nome;
 	@Column(nullable = false, length = 11)
-	private long cpf;
+	private String cpf;
 	@Column(nullable = false, length = 3)
 	private int idade;
 	@Column(nullable = false, length = 1)
@@ -22,7 +22,7 @@ public class Paciente extends Persistivel implements Serializable
 	public Paciente(String nome, String cpf, int idade, String sexo)
 	{
 		this.nome = nome;
-		this.cpf = Long.parseLong(cpf.replaceAll("[^0-9]", ""));
+		this.cpf = cpf.replaceAll("[^0-9]", "");
 		this.idade = idade;
 		this.sexo = sexo;
 	}
@@ -42,14 +42,14 @@ public class Paciente extends Persistivel implements Serializable
 		this.nome = nome;
 	}
 
-	public Long getCpf()
+	public String getCpf()
 	{
 		return cpf;
 	}
 
 	public void setCpf(String cpf)
 	{
-		this.cpf = Long.parseLong(cpf.replaceAll("[^0-9]", ""));
+		this.cpf = cpf.replaceAll("[^0-9]", "");
 	}
 
 	public int getIdade()

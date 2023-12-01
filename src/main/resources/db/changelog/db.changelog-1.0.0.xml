@@ -1,0 +1,26 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+<!--    <changeSet author="savioNascimento" id="2">-->
+<!--        <createTable tableName="paciente">-->
+<!--            <column autoIncrement="true" name="id" type="INT">-->
+<!--                <constraints primaryKey="true" />-->
+<!--            </column>-->
+<!--            <column name="nome" type="VARCHAR(255)" />-->
+<!--            <column name="cpf" type="VARCHAR(255)" />-->
+<!--            <column name="idade" type="INT" />-->
+<!--            <column name="sexo" type="CHAR" />-->
+<!--        </createTable>-->
+<!--    </changeSet>-->
+
+    <changeSet id="1" author="savioNascimento">
+        <insert tableName="paciente">
+            <column name="nome" value="Rocky"/>
+            <column name="cpf" value="70034077488"/>
+            <column name="idade" valueNumeric="10"/>
+            <column name="sexo" value="M"/>
+        </insert>
+
+    </changeSet>
+</databaseChangeLog>

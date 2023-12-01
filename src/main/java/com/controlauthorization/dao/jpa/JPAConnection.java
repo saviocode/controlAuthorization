@@ -15,7 +15,7 @@ public class JPAConnection {
 			}
 		} catch (Exception e) {}
 
-		conexao = Persistence.createEntityManagerFactory("controleCadastro");
+		conexao = Persistence.createEntityManagerFactory("controlAuthorization");
 		return conexao;
 	}
 
