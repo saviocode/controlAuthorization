@@ -15,7 +15,7 @@
     <script src="js/ajax.js"></script>
     <script src="js/jquery.mask.min.js"></script>
     <script src="js/autorizacao.js"></script>
-    <script src="js/mascaraCnpj.js"></script>
+    <script src="js/mascaraCpf.js"></script>
 </head>
 <body>
 <div class="container-xl">

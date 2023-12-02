@@ -4,10 +4,10 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.controlauthorization</groupId>
-    <artifactId>ControlAuthorization</artifactId>
+    <groupId>com.controleAutorizacao</groupId>
+    <artifactId>ControleAutorizacao</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <name>ControlAuthorization</name>
+    <name>ControleAutorizacao</name>
     <packaging>war</packaging>
 
     <properties>
@@ -78,7 +78,7 @@
 
     </dependencies>
     <build>
-        <finalName>ControlAuthorization</finalName>
+        <finalName>ControleAutorizacao</finalName>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>

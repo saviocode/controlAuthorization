@@ -3,7 +3,7 @@ Este projeto consiste em um sistema de controle de autorizações de procediment
 
 # Backend
 Linguagem: Java.
-Frameworks: JPA, Hibernate.
+Frameworks: Hibernate, Liquibase.
 
 # Banco de Dados
 Banco de Dados: PostgresSql.
