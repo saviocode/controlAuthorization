@@ -1,4 +1,4 @@
-package com.controleAutorizacao.services.servlet.autorizacao;
+package com.controleAutorizacao.controller.autorizacao;
 
 import com.controleAutorizacao.dao.jdbc.AutorizacaoJDBC;
 import com.controleAutorizacao.dao.jdbc.PacienteJDBC;
@@ -38,7 +38,7 @@ public class CadastroServlet extends HttpServlet {
             boolean autorizacaoCadastrada = autorizacao.validar();
 
             if (autorizacaoCadastrada) {
-                if (new AutorizacaoJDBC().salvar(autorizacao)) {
+                if (new AutorizacaoJDBC().inserirAutorizacao(autorizacao)) {
                     JSONObject jsonResponse = new JSONObject();
                     jsonResponse.put("message", "Cadastro realizado com sucesso!");
 

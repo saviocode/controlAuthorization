@@ -1,4 +1,4 @@
-package com.controleAutorizacao.services.servlet.procedimento;
+package com.controleAutorizacao.controller.procedimento;
 
 import com.controleAutorizacao.dao.jdbc.ProcedimentoJDBC;
 import com.controleAutorizacao.entidade.Procedimento;

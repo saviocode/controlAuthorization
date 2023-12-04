@@ -60,7 +60,7 @@ public class Autorizacao extends EntidadeGeneric implements Serializable {
         this.data = data;
     }
 
-    public boolean isAutorizado() {
+    public boolean getAutorizado() {
         return autorizado;
     }
 

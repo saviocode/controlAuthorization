@@ -1,4 +1,4 @@
-package com.controleAutorizacao.services.servlet.controleAutorizacao;
+package com.controleAutorizacao.controller.controleAutorizacao;
 
 import com.controleAutorizacao.dao.jdbc.ControleAutorizacaoJDBC;
 import com.controleAutorizacao.dao.jdbc.ProcedimentoJDBC;
@@ -12,8 +12,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet("/controleautorizacao/alteracao")
-public class AlteracaoServlet extends HttpServlet {
+@WebServlet("/controleautorizacao/cadastro")
+public class CadastroServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
@@ -30,18 +30,13 @@ public class AlteracaoServlet extends HttpServlet {
             boolean permitido = jsonObject.getBoolean("permitido");
             int idProcedimento = jsonObject.getInt("idProcedimento");
             Procedimento procedimento = new ProcedimentoJDBC().buscarPorId(idProcedimento);
-            int idControleAutorizacao = jsonObject.getInt("idControleAutorizacao");
-            ControleAutorizacao controleAutorizacao = new ControleAutorizacaoJDBC().buscarPorId(
-                    idControleAutorizacao);
-            controleAutorizacao.setIdade(idade);
-            controleAutorizacao.setSexo(sexo);
-            controleAutorizacao.setPermitido(permitido);
-            controleAutorizacao.setProcedimento(procedimento);
+            ControleAutorizacao controleAutorizacao = new ControleAutorizacao(procedimento, idade, sexo,
+                    permitido);
 
-            if (new ControleAutorizacaoJDBC().atualizar(controleAutorizacao)) {
-                response.getWriter().write("Atualização realizado com sucesso!");
+            if (new ControleAutorizacaoJDBC().salvar(controleAutorizacao)) {
+                response.getWriter().write("Cadastro realizado com sucesso!");
             } else {
-                response.getWriter().write("Erro ao realizar a atualização!");
+                response.getWriter().write("Erro ao realizar cadastro!");
             }
         } catch (Exception e) {
             e.printStackTrace();

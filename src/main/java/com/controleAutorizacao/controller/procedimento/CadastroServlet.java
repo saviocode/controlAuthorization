@@ -1,8 +1,7 @@
-package com.controleAutorizacao.services.servlet.paciente;
+package com.controleAutorizacao.controller.procedimento;
 
-import com.controleAutorizacao.dao.jdbc.PacienteJDBC;
-import com.controleAutorizacao.entidade.Paciente;
-import org.json.JSONException;
+import com.controleAutorizacao.dao.jdbc.ProcedimentoJDBC;
+import com.controleAutorizacao.entidade.Procedimento;
 import org.json.JSONObject;
 
 import javax.servlet.annotation.WebServlet;
@@ -11,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet("/paciente/cadastro")
+@WebServlet("/procedimento/cadastro")
 public class CadastroServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
@@ -25,20 +24,15 @@ public class CadastroServlet extends HttpServlet {
             JSONObject jsonObject = new JSONObject(jsonPayload);
 
             String nome = jsonObject.getString("nome");
-            String cpf = jsonObject.getString("cpf");
-            int idade = jsonObject.getInt("idade");
-            String sexo = jsonObject.getString("sexo");
-
-            Paciente paciente = new Paciente(nome, cpf, idade, sexo);
-            if (new PacienteJDBC().salvar(paciente)) {
+            String descricao = jsonObject.getString("descricao");
+            Procedimento procedimento = new Procedimento(nome, descricao);
+            if (new ProcedimentoJDBC().salvar(procedimento)) {
                 response.getWriter().write("Cadastro realizado com sucesso!");
             } else {
                 response.getWriter().write("Erro ao realizar cadastro!");
             }
-        } catch (JSONException e) {
-            throw new RuntimeException(e);
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
-
 }
-

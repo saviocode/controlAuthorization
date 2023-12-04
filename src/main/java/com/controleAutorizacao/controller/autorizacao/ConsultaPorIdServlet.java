@@ -1,7 +1,7 @@
-package com.controleAutorizacao.services.servlet.paciente;
+package com.controleAutorizacao.controller.autorizacao;
 
-import com.controleAutorizacao.dao.jdbc.PacienteJDBC;
-import com.controleAutorizacao.entidade.Paciente;
+import com.controleAutorizacao.dao.jdbc.AutorizacaoJDBC;
+import com.controleAutorizacao.entidade.Autorizacao;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.json.JSONObject;
 
@@ -10,13 +10,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.List;
 
-@WebServlet("/paciente/consultaPorNome")
-public class ConsultaPorNomeServlet extends HttpServlet {
+@WebServlet("/autorizacao/consultaPorId")
+public class ConsultaPorIdServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
-    public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
         response.setCharacterEncoding("UTF-8");
 
         try {
@@ -25,14 +24,14 @@ public class ConsultaPorNomeServlet extends HttpServlet {
 
             JSONObject jsonObject = new JSONObject(jsonPayload);
 
-            String nomePaciente = jsonObject.getString("nomePaciente");
-            List<Paciente> pacientes = new PacienteJDBC().buscarPorNome(nomePaciente);
+            int idAutorizacao = jsonObject.getInt("idAutorizacao");
+            Autorizacao autorizacao = new AutorizacaoJDBC().buscarPorId(idAutorizacao);
             ObjectMapper objectMapper = new ObjectMapper();
 
-            String pacientesJson = objectMapper.writeValueAsString(pacientes);
+            String autorizacaoJson = objectMapper.writeValueAsString(autorizacao);
             response.setContentType("application/json");
             response.setCharacterEncoding("UTF-8");
-            response.getWriter().write(pacientesJson);
+            response.getWriter().write(autorizacaoJson);
         } catch (Exception e) {
             response.getWriter().write("Erro ao realizar consulta!");
         }

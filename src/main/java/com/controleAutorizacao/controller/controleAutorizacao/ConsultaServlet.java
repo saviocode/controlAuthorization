@@ -1,7 +1,7 @@
-package com.controleAutorizacao.services.servlet.paciente;
+package com.controleAutorizacao.controller.controleAutorizacao;
 
-import com.controleAutorizacao.dao.jdbc.PacienteJDBC;
-import com.controleAutorizacao.entidade.Paciente;
+import com.controleAutorizacao.dao.jdbc.ControleAutorizacaoJDBC;
+import com.controleAutorizacao.entidade.ControleAutorizacao;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import javax.servlet.annotation.WebServlet;
@@ -11,20 +11,20 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet("/paciente/consulta")
+@WebServlet("/controleautorizacao/consulta")
 public class ConsultaServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
         response.setCharacterEncoding("UTF-8");
 
-        List<Paciente> pacientes = new PacienteJDBC().buscar();
+        List<ControleAutorizacao> controleAutorizacoes = new ControleAutorizacaoJDBC().buscar();
         ObjectMapper objectMapper = new ObjectMapper();
 
-        String procedimentosJson = objectMapper.writeValueAsString(pacientes);
+        String controleAutorizacaoJson = objectMapper.writeValueAsString(controleAutorizacoes);
         response.setContentType("application/json");
         response.setCharacterEncoding("UTF-8");
-        response.getWriter().write(procedimentosJson);
+        response.getWriter().write(controleAutorizacaoJson);
     }
 }
 

@@ -1,4 +1,4 @@
-package com.controleAutorizacao.services.servlet.autorizacao;
+package com.controleAutorizacao.controller.autorizacao;
 
 import com.controleAutorizacao.dao.jdbc.AutorizacaoJDBC;
 import org.json.JSONObject;

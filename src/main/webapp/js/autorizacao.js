@@ -28,7 +28,7 @@ $(document).ready(function () {
 
 cadAutorizacao = function (form) {
     event.preventDefault();
-    var autorizacao = new Object();
+    var autorizacao = {};
     const msg = document.querySelector('#msg');
 
     var idProcedimentoElement = form.querySelectorAll("#idProcedimento")[0];
