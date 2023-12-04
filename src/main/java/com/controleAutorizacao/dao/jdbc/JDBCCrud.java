@@ -88,6 +88,8 @@ public  class JDBCCrud<T> extends JDBCConnection {
         return lista;
     }
 
-    public abstract String getEntityName();
+    public String getEntityName() {
+        return null;
+    }
 
 }
