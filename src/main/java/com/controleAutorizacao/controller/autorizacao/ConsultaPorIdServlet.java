@@ -1,6 +1,6 @@
 package com.controleAutorizacao.controller.autorizacao;
 
-import com.controleAutorizacao.dao.jdbc.AutorizacaoJDBC;
+import com.controleAutorizacao.dao.AutorizacaoDao;
 import com.controleAutorizacao.entidade.Autorizacao;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.json.JSONObject;
@@ -25,7 +25,7 @@ public class ConsultaPorIdServlet extends HttpServlet {
             JSONObject jsonObject = new JSONObject(jsonPayload);
 
             int idAutorizacao = jsonObject.getInt("idAutorizacao");
-            Autorizacao autorizacao = new AutorizacaoJDBC().buscarPorId(idAutorizacao);
+            Autorizacao autorizacao = new AutorizacaoDao().buscarPorId(String.valueOf(idAutorizacao));
             ObjectMapper objectMapper = new ObjectMapper();
 
             String autorizacaoJson = objectMapper.writeValueAsString(autorizacao);

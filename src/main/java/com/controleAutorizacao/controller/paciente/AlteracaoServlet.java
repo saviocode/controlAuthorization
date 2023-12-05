@@ -1,6 +1,6 @@
 package com.controleAutorizacao.controller.paciente;
 
-import com.controleAutorizacao.dao.jdbc.PacienteJDBC;
+import com.controleAutorizacao.dao.PacienteDao;
 import com.controleAutorizacao.entidade.Paciente;
 import org.json.JSONObject;
 
@@ -28,13 +28,13 @@ public class AlteracaoServlet extends HttpServlet {
             int idade = jsonObject.getInt("idade");
             String sexo = jsonObject.getString("sexo");
             int idPaciente = jsonObject.getInt("idPaciente");
-            Paciente paciente = new PacienteJDBC().buscarPorId(idPaciente);
+            Paciente paciente = new PacienteDao().buscarPorId(idPaciente);
             paciente.setNome(nome);
             paciente.setCpf(cpf);
             paciente.setIdade(idade);
             paciente.setSexo(sexo);
 
-            if (new PacienteJDBC().atualizar(paciente)) {
+            if (new PacienteDao().atualizar(paciente)) {
                 response.getWriter().write("Atualização realizado com sucesso!");
             } else {
                 response.getWriter().write("Erro ao realizar a atualização!");

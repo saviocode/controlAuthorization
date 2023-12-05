@@ -1,6 +1,6 @@
 package com.controleAutorizacao.controller.paciente;
 
-import com.controleAutorizacao.dao.jdbc.PacienteJDBC;
+import com.controleAutorizacao.dao.PacienteDao;
 import com.controleAutorizacao.entidade.Paciente;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -30,7 +30,7 @@ public class CadastroServlet extends HttpServlet {
             String sexo = jsonObject.getString("sexo");
 
             Paciente paciente = new Paciente(nome, cpf, idade, sexo);
-            if (new PacienteJDBC().salvar(paciente)) {
+            if (new PacienteDao().salvar(paciente)) {
                 response.getWriter().write("Cadastro realizado com sucesso!");
             } else {
                 response.getWriter().write("Erro ao realizar cadastro!");

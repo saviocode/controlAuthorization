@@ -1,6 +1,6 @@
 package com.controleAutorizacao.entidade;
 
-import com.controleAutorizacao.dao.jdbc.ControleAutorizacaoJDBC;
+import com.controleAutorizacao.dao.ControleAutorizacaoDao;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -69,7 +69,7 @@ public class Autorizacao extends EntidadeGeneric implements Serializable {
     }
 
     public boolean validar() {
-        List<ControleAutorizacao> listaControleAutorizacao = new ControleAutorizacaoJDBC().buscarAutorizacao(paciente, procedimento);
+        List<ControleAutorizacao> listaControleAutorizacao = new ControleAutorizacaoDao().buscarAutorizacao(paciente, procedimento);
         if (listaControleAutorizacao.isEmpty()) {
             return false;
         } else {

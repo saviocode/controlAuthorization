@@ -1,9 +1,6 @@
 package com.controleAutorizacao.repository;
 
-import com.controleAutorizacao.dao.jdbc.JDBCCrud;
 import com.controleAutorizacao.entidade.Regra;
-import org.hibernate.jpa.internal.JpaComplianceImpl;
-import org.hibernate.jpa.spi.JpaCompliance;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

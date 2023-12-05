@@ -10,22 +10,23 @@
         <class>com.controleAutorizacao.entidade.Procedimento</class>
         <class>com.controleAutorizacao.entidade.ControleAutorizacao</class>
         <class>com.controleAutorizacao.entidade.Autorizacao</class>
+        <class>com.controleAutorizacao.entidade.Regra</class>
         <properties>
-            <property name="hibernate.archive.autodetection" value="class" />
+            <property name="hibernate.archive.autodetection" value="class"/>
 
             <!-- Conexão com o banco de dados -->
-            <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQL10Dialect" />
-            <property name="hibernate.connection.driver_class" value="org.postgresql.Driver" />
-            <property name="hibernate.connection.url" value="jdbc:postgresql://localhost:5432/controleAutorizacao" />
-            <property name="hibernate.connection.user" value="postgres" />
-            <property name="hibernate.connection.password" value="postgres" />
-<!--            <property name="hibernate.hbm2ddl.auto" value="create" />-->
-            <!--<property name="hibernate.hbm2ddl.auto" value="update"/>-->
+            <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQL10Dialect"/>
+            <property name="hibernate.connection.driver_class" value="org.postgresql.Driver"/>
+            <property name="hibernate.connection.url" value="jdbc:postgresql://localhost:5432/controleAutorizacao"/>
+            <property name="hibernate.connection.user" value="postgres"/>
+            <property name="hibernate.connection.password" value="postgres"/>
+            <property name="hibernate.hbm2ddl.auto" value="create"/>
+<!--            <property name="hibernate.hbm2ddl.auto" value="update"/>-->
 
-                       <!--Configuracoes de Debug-->
-            <property name="hibernate.show_sql" value="true" />
-            <property name="hibernate.format_sql" value="true" />
-            <property name="use_sql_comments" value="true" />
+            <!--Configuracoes de Debug-->
+            <property name="hibernate.show_sql" value="true"/>
+            <property name="hibernate.format_sql" value="true"/>
+            <property name="use_sql_comments" value="true"/>
 
         </properties>
     </persistence-unit>

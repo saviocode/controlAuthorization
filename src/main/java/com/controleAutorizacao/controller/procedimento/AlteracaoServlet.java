@@ -1,6 +1,6 @@
 package com.controleAutorizacao.controller.procedimento;
 
-import com.controleAutorizacao.dao.jdbc.ProcedimentoJDBC;
+import com.controleAutorizacao.dao.ProcedimentoDao;
 import com.controleAutorizacao.entidade.Procedimento;
 import org.json.JSONObject;
 
@@ -26,10 +26,10 @@ public class AlteracaoServlet extends HttpServlet {
             String nome = jsonObject.getString("nome");
             String descricao = jsonObject.getString("descricao");
             int idProcedimento = jsonObject.getInt("idProcedimento");
-            Procedimento procedimento = new ProcedimentoJDBC().buscarPorId(idProcedimento);
+            Procedimento procedimento = new ProcedimentoDao().buscarPorId(idProcedimento);
             procedimento.setNome(nome);
             procedimento.setDescricao(descricao);
-            if (new ProcedimentoJDBC().atualizar(procedimento)) {
+            if (new ProcedimentoDao().atualizar(procedimento)) {
                 response.getWriter().write("Atualização realizado com sucesso!");
             } else {
                 response.getWriter().write("Erro ao realizar a atualização!");

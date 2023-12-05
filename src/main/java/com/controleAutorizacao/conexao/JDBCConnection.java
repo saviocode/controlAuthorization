@@ -1,4 +1,4 @@
-package com.controleAutorizacao.dao.jdbc;
+package com.controleAutorizacao.conexao;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;

@@ -1,6 +1,6 @@
 package com.controleAutorizacao.controller.procedimento;
 
-import com.controleAutorizacao.dao.jdbc.ProcedimentoJDBC;
+import com.controleAutorizacao.dao.ProcedimentoDao;
 import com.controleAutorizacao.entidade.Procedimento;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -18,7 +18,7 @@ public class ConsultaServlet extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
         response.setCharacterEncoding("UTF-8");
 
-        List<Procedimento> procedimentos = new ProcedimentoJDBC().buscar();
+        List<Procedimento> procedimentos = new ProcedimentoDao().buscar();
         ObjectMapper objectMapper = new ObjectMapper();
 
         String procedimentosJson = objectMapper.writeValueAsString(procedimentos);

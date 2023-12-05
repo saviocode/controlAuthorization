@@ -1,6 +1,6 @@
 package com.controleAutorizacao.controller.procedimento;
 
-import com.controleAutorizacao.dao.jdbc.ProcedimentoJDBC;
+import com.controleAutorizacao.dao.ProcedimentoDao;
 import com.controleAutorizacao.entidade.Procedimento;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.json.JSONObject;
@@ -26,7 +26,7 @@ public class ConsultaPorNomeServlet extends HttpServlet {
             JSONObject jsonObject = new JSONObject(jsonPayload);
 
             String nomeProcedimento = jsonObject.getString("nomeProcedimento");
-            List<Procedimento> procedimentos = new ProcedimentoJDBC().buscarPorNome(nomeProcedimento);
+            List<Procedimento> procedimentos = new ProcedimentoDao().buscarPorNome(nomeProcedimento);
             ObjectMapper objectMapper = new ObjectMapper();
 
             String procedimentosJson = objectMapper.writeValueAsString(procedimentos);

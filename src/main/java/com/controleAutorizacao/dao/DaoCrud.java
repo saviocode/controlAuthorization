@@ -1,11 +1,13 @@
-package com.controleAutorizacao.dao.jdbc;
+package com.controleAutorizacao.dao;
+
+import com.controleAutorizacao.conexao.JDBCConnection;
 
 import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
 
-public  class JDBCCrud<T> extends JDBCConnection {
+public  class DaoCrud<T> extends JDBCConnection {
 
     public boolean salvar(T t) {
         try {
@@ -43,7 +45,6 @@ public  class JDBCCrud<T> extends JDBCConnection {
         super.close();
         return listObjetos;
     }
-
 
     @SuppressWarnings("unchecked")
     public T buscarPorId(int id) {

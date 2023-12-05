@@ -1,6 +1,6 @@
 package com.controleAutorizacao.controller.controleAutorizacao;
 
-import com.controleAutorizacao.dao.jdbc.ControleAutorizacaoJDBC;
+import com.controleAutorizacao.dao.ControleAutorizacaoDao;
 import com.controleAutorizacao.entidade.ControleAutorizacao;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -18,7 +18,7 @@ public class ConsultaServlet extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
         response.setCharacterEncoding("UTF-8");
 
-        List<ControleAutorizacao> controleAutorizacoes = new ControleAutorizacaoJDBC().buscar();
+        List<ControleAutorizacao> controleAutorizacoes = new ControleAutorizacaoDao().buscar();
         ObjectMapper objectMapper = new ObjectMapper();
 
         String controleAutorizacaoJson = objectMapper.writeValueAsString(controleAutorizacoes);

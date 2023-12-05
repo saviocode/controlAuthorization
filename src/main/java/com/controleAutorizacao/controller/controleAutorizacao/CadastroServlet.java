@@ -1,7 +1,7 @@
 package com.controleAutorizacao.controller.controleAutorizacao;
 
-import com.controleAutorizacao.dao.jdbc.ControleAutorizacaoJDBC;
-import com.controleAutorizacao.dao.jdbc.ProcedimentoJDBC;
+import com.controleAutorizacao.dao.ControleAutorizacaoDao;
+import com.controleAutorizacao.dao.ProcedimentoDao;
 import com.controleAutorizacao.entidade.ControleAutorizacao;
 import com.controleAutorizacao.entidade.Procedimento;
 import org.json.JSONObject;
@@ -29,11 +29,11 @@ public class CadastroServlet extends HttpServlet {
             String sexo = jsonObject.getString("sexo");
             boolean permitido = jsonObject.getBoolean("permitido");
             int idProcedimento = jsonObject.getInt("idProcedimento");
-            Procedimento procedimento = new ProcedimentoJDBC().buscarPorId(idProcedimento);
+            Procedimento procedimento = new ProcedimentoDao().buscarPorId(idProcedimento);
             ControleAutorizacao controleAutorizacao = new ControleAutorizacao(procedimento, idade, sexo,
                     permitido);
 
-            if (new ControleAutorizacaoJDBC().salvar(controleAutorizacao)) {
+            if (new ControleAutorizacaoDao().salvar(controleAutorizacao)) {
                 response.getWriter().write("Cadastro realizado com sucesso!");
             } else {
                 response.getWriter().write("Erro ao realizar cadastro!");

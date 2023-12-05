@@ -1,4 +1,4 @@
-package com.controleAutorizacao.dao.jdbc;
+package com.controleAutorizacao.dao;
 
 import com.controleAutorizacao.repository.ControleAutorizacaoDAO;
 import com.controleAutorizacao.entidade.ControleAutorizacao;
@@ -9,7 +9,7 @@ import javax.persistence.Query;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ControleAutorizacaoJDBC extends JDBCCrud<ControleAutorizacao> implements ControleAutorizacaoDAO {
+public class ControleAutorizacaoDao extends DaoCrud<ControleAutorizacao> implements ControleAutorizacaoDAO {
     @Override
     public String getEntityName() {
         return "ControleAutorizacao";

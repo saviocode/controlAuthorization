@@ -1,6 +1,6 @@
 package com.controleAutorizacao.controller.paciente;
 
-import com.controleAutorizacao.dao.jdbc.PacienteJDBC;
+import com.controleAutorizacao.dao.PacienteDao;
 import com.controleAutorizacao.entidade.Paciente;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.json.JSONObject;
@@ -26,7 +26,7 @@ public class ConsultaPorNomeServlet extends HttpServlet {
             JSONObject jsonObject = new JSONObject(jsonPayload);
 
             String nomePaciente = jsonObject.getString("nomePaciente");
-            List<Paciente> pacientes = new PacienteJDBC().buscarPorNome(nomePaciente);
+            List<Paciente> pacientes = new PacienteDao().buscarPorNome(nomePaciente);
             ObjectMapper objectMapper = new ObjectMapper();
 
             String pacientesJson = objectMapper.writeValueAsString(pacientes);

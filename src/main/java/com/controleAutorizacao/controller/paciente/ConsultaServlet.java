@@ -1,6 +1,6 @@
 package com.controleAutorizacao.controller.paciente;
 
-import com.controleAutorizacao.dao.jdbc.PacienteJDBC;
+import com.controleAutorizacao.dao.PacienteDao;
 import com.controleAutorizacao.entidade.Paciente;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -18,7 +18,7 @@ public class ConsultaServlet extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
         response.setCharacterEncoding("UTF-8");
 
-        List<Paciente> pacientes = new PacienteJDBC().buscar();
+        List<Paciente> pacientes = new PacienteDao().buscar();
         ObjectMapper objectMapper = new ObjectMapper();
 
         String procedimentosJson = objectMapper.writeValueAsString(pacientes);

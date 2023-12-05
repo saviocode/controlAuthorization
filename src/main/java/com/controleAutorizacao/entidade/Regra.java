@@ -1,18 +1,15 @@
 package com.controleAutorizacao.entidade;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.Table;
+import java.io.Serializable;
 
 @Entity
 @Table(name = "regras")
-public class Regra {
+public class Regra extends EntidadeGeneric implements Serializable {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private static final long serialVersionUID = 1L;
 
     @Column(length = 8)
     private Long cdProcedimento;
@@ -36,13 +33,6 @@ public class Regra {
         this.usuario = usuario;
     }
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     public Long getCdProcedimento() {
         return cdProcedimento;
